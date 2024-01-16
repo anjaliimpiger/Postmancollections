@@ -1,0 +1,410 @@
+{
+	"info": {
+		"_postman_id": "07c4536a-3768-4b19-bff1-4a7d1618078e",
+		"name": "MRA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "17505553"
+	},
+	"item": [
+		{
+			"name": "TaxpayerServices",
+			"item": [
+				{
+					"name": "TaxpayersByTaxtype",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access_token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "access-key",
+								"value": "4c7c7a1ace184da6a88dc6f7a4accf92",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{gateway_url}}/t/mra.mw/taxpayer/1.0/api/TaxpayersByTaxType?taxType=vat",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"t",
+								"mra.mw",
+								"taxpayer",
+								"1.0",
+								"api",
+								"TaxpayersByTaxType"
+							],
+							"query": [
+								{
+									"key": "taxType",
+									"value": "vat"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ValidateTIN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access_token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "access-key",
+								"value": "4c7c7a1ace184da6a88dc6f7a4accf92",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{gateway_url}}/t/mra.mw/taxpayer/1.0/api/ValidateTIN?TIN=20101101",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"t",
+								"mra.mw",
+								"taxpayer",
+								"1.0",
+								"api",
+								"ValidateTIN"
+							],
+							"query": [
+								{
+									"key": "TIN",
+									"value": "20101101"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TaxOffices",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access_token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "access-key",
+								"value": "4c7c7a1ace184da6a88dc6f7a4accf92"
+							}
+						],
+						"url": "{{gateway_url}}/t/mra.mw/taxpayer/1.0/api/TaxOffices"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TCCServices",
+			"item": [
+				{
+					"name": "GetTCC",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access_token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "access-key",
+								"value": "4c7c7a1ace184da6a88dc6f7a4accf92",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{gateway_url}}/t/mra.mw/tccservices/1.0/api/GetTCCForTPIN?TPIN=20101101",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"t",
+								"mra.mw",
+								"tccservices",
+								"1.0",
+								"api",
+								"GetTCCForTPIN"
+							],
+							"query": [
+								{
+									"key": "TPIN",
+									"value": "20101101"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ApplyforTCC",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access_token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "access-key",
+								"value": "4c7c7a1ace184da6a88dc6f7a4accf92",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"EmailAddress\": \"string\",\r\n  \"TPIN\": \"string\",\r\n  \"TCCTypeCode\": \"string\",\r\n  \"ApplicantFirstname\": \"string\",\r\n  \"ApplicantLastname\": \"string\",\r\n  \"ApplicantPhoneNumber\": \"string\"\r\n}"
+						},
+						"url": "{{gateway_url}}/t/mra.mw/tccservices/1.0/api/ApplyForTCC"
+					},
+					"response": []
+				},
+				{
+					"name": "ValidateTCC",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access_token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "access-key",
+								"value": "4c7c7a1ace184da6a88dc6f7a4accf92",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"TCCNumber\": \"MRA/LTO/000006\"\r\n}"
+						},
+						"url": "{{gateway_url}}/t/mra.mw/tccservices/1.0/api/ValidateTCC"
+					},
+					"response": []
+				},
+				{
+					"name": "TCCTypes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access_token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "access-key",
+								"value": "4c7c7a1ace184da6a88dc6f7a4accf92"
+							}
+						],
+						"url": "{{gateway_url}}/t/mra.mw/tccservices/1.0/api/TCCTypes"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "VehicleInformation",
+			"item": [
+				{
+					"name": "GetVehicleDetails",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access_token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "access-key",
+								"value": "4c7c7a1ace184da6a88dc6f7a4accf92",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{gateway_url}}/t/mra.mw/vehicleinfo/1.0/api/GetVehicleDetails?vehicleRegNo=ZA5057",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"t",
+								"mra.mw",
+								"vehicleinfo",
+								"1.0",
+								"api",
+								"GetVehicleDetails"
+							],
+							"query": [
+								{
+									"key": "vehicleRegNo",
+									"value": "ZA5057"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VehicleMakeLookup",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access_token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "access-key",
+								"value": "4c7c7a1ace184da6a88dc6f7a4accf92",
+								"type": "text"
+							}
+						],
+						"url": "{{gateway_url}}/t/mra.mw/vehicleinfo/1.0/api/VehicleMakeLookup"
+					},
+					"response": []
+				},
+				{
+					"name": "VehicleModels",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access_token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "access-key",
+								"value": "4c7c7a1ace184da6a88dc6f7a4accf92",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{gateway_url}}/t/mra.mw/vehicleinfo/1.0/api/VehicleModels?vehicleMakeCode=a06",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"t",
+								"mra.mw",
+								"vehicleinfo",
+								"1.0",
+								"api",
+								"VehicleModels"
+							],
+							"query": [
+								{
+									"key": "vehicleMakeCode",
+									"value": "a06"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VehicleBodytypeLookup",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access_token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "access-key",
+								"value": "4c7c7a1ace184da6a88dc6f7a4accf92",
+								"type": "text"
+							}
+						],
+						"url": "{{gateway_url}}/t/mra.mw/vehicleinfo/1.0/api/VehicleBodyTypeLookup"
+					},
+					"response": []
+				},
+				{
+					"name": "CalcVehicleDutyPayable",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access_token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "access-key",
+								"value": "4c7c7a1ace184da6a88dc6f7a4accf92",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"VehicleMakeCode\": \"a06\",\r\n  \"VehicleModelCode\": \"9998\",\r\n  \"YearOfMake\": \"2010\",\r\n  \"BodyTypeCode\": \"00\"\r\n}"
+						},
+						"url": "{{gateway_url}}/t/mra.mw/vehicleinfo/1.0/api/CalculateVehicleDutyPayable"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

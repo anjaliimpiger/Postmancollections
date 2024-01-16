@@ -1,0 +1,64 @@
+{
+	"info": {
+		"_postman_id": "3cf80ca6-0799-4daf-8db2-d95325fabef6",
+		"name": "DEPD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "17505553"
+	},
+	"item": [
+		{
+			"name": "HouseholdAPI",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{access_token}}"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "{{gateway_url}}/t/finance.gov.mw/householddata/1.0/get_households_data?district_code=209&lower_percentile_category=0&upper_percentile_category=10&traditional_authority_code=20907&wealth_quintiles=1,2,3",
+					"host": [
+						"{{gateway_url}}"
+					],
+					"path": [
+						"t",
+						"finance.gov.mw",
+						"householddata",
+						"1.0",
+						"get_households_data"
+					],
+					"query": [
+						{
+							"key": "district_code",
+							"value": "209"
+						},
+						{
+							"key": "lower_percentile_category",
+							"value": "0"
+						},
+						{
+							"key": "upper_percentile_category",
+							"value": "10"
+						},
+						{
+							"key": "traditional_authority_code",
+							"value": "20907"
+						},
+						{
+							"key": "wealth_quintiles",
+							"value": "1,2,3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

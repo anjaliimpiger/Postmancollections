@@ -1,0 +1,25 @@
+{
+	"info": {
+		"_postman_id": "e636d6c9-76fd-4c64-a114-12f493bb7ffa",
+		"name": "ExchangeRate",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "17505553"
+	},
+	"item": [
+		{
+			"name": "ExchangeRateAPI",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{access_token}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "{{gateway_url}}/t/rbm.mw/exchange/1.0/AllExchangeRatesJSON"
+			},
+			"response": []
+		}
+	]
+}

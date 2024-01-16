@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "51e431e0-f0a8-4ad8-a26a-5c11e4bfcfcf",
+		"name": "OAuth2Token",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "17505553"
+	},
+	"item": [
+		{
+			"name": "Get_Token",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Combine consumerKey and consumerSecret with a colon\r",
+							"var credentials = pm.environment.get('consumer_key') + ':' + pm.environment.get('consumer_secret');\r",
+							"// Encode credentials in Base64\r",
+							"var base64Credentials = Buffer.from(credentials).toString('base64');\r",
+							"// Set encoded token in env variable\r",
+							"pm.environment.set('token',base64Credentials);\r",
+							"// Log the encoded credentials for verification\r",
+							"console.log(\"Encoded Credentials:\", base64Credentials);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Fetch the response\r",
+							"var response=pm.response.json();\r",
+							"console.log(\"response\",response);\r",
+							"// Get the access token from the response\r",
+							"var accessToken = response.access_token;\r",
+							"// Set the access token as an environment variable access_token\r",
+							"pm.environment.set(\"access_token\", accessToken);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						}
+					]
+				},
+				"url": "{{token_url}}/oauth2/token"
+			},
+			"response": []
+		}
+	]
+}
