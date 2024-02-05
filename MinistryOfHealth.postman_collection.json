@@ -58,6 +58,82 @@
 				"url": "{{gateway_url}}/t/health.gov.mw/vaccine/1.0/certificates/{{public_key}}"
 			},
 			"response": []
+		},
+		{
+			"name": "Healthfacility_Search",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{access_token}}"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"district_id\": \"1\",\r\n    \"facility_type_id\": \"9\",\r\n    \"opensearch\":\r\n    {\r\n        \"facility_code\":\"\",\r\n        \"facility_name\":\"\"\r\n    }\r\n}"
+				},
+				"url": "{{gateway_url}}/t/health.gov.mw/search/1.0/facility"
+			},
+			"response": []
+		},
+		{
+			"name": "Healthfacility_getdistrictID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{access_token}}"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"district_name\": \"Mchinji\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{gateway_url}}/t/health.gov.mw/search/1.0/districtID"
+			},
+			"response": []
+		},
+		{
+			"name": "Healthfacility_getfacilitytypeid",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{access_token}}"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"facility_type\":\"Clinic\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{gateway_url}}/t/health.gov.mw/search/1.0/facilitytypeid"
+			},
+			"response": []
 		}
 	]
 }
